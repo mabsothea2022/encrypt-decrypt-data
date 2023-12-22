@@ -9,7 +9,7 @@ class transactionsController extends Controller
 {
     public function index(){
         $data = transactionsModel::all();
-        return view("DataEncryptDecrypt.add",compact("data"));
+        return view("DataEncryptDecrypt.front",compact("data"));
     }
 
     public function create(){
