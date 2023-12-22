@@ -9,7 +9,7 @@ class transactionsController extends Controller
 {
     public function index(){
         $data = transactionsModel::all();
-        return view("DataEncryptDecrypt.front",compact("data"));
+        return view("DataEncryptDecrypt.add",compact("data"));
     }
 
     public function create(){
@@ -26,6 +26,11 @@ class transactionsController extends Controller
         ]);
 
         transactionsModel::create($request->all());
+        return redirect()->route("data.index");
+    }
+
+    public function destroy($id){
+        transactionsModel::find($id)->delete();
         return redirect()->route("data.index");
     }
 }
